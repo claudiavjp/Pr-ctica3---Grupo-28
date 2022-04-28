@@ -70,7 +70,6 @@ def on_message_client(mqttc, userdata, msg):
         else:
             mqttc.publish(public_topic, f'Partida finalizada. La palabra era {solution}')
             winner = msg.topic
-            print(winner[22:])
             mqttc.publish(public_topic, f'{winner[22:]} ha ganado la partida')
             #userdata['status'] == 0
     finally:
