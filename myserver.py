@@ -1,15 +1,3 @@
-########################################################################################
-########################################################################################
-###############                                                          ###############
-###############            PRÁCTICA 3 - PROGRAMACIÓN PARALELA            ###############
-###############                   Cristina Ávila Santos                  ###############
-###############                   Isabel Beltrá Merino                   ###############
-###############                   Claudia Viñas JÃ¡Ã±ez                  ###############
-###############                                                          ###############
-########################################################################################
-########################################################################################
-
-
 from paho.mqtt.client import Client
 import paho.mqtt.publish as publish
 from multiprocessing import Process
@@ -91,8 +79,8 @@ def on_message_client(mqttc, userdata, msg):
                 mqttc.publish(public_topic, mssg)
             else:
                 winner = msg.topic
-                mqttc.publish(public_topic, f'M¡YA TENEMOS GANADOR!, es el jugador {winner[22:]}\n La palabra que había pensado era {solution}\n Presione ctrl-z para salir del juego...')
-                print(f'¡YA TENEMOS GANADOR!, es el jugador {winner[22:]}\n Presione ctrl-z para salir del juego...')
+                mqttc.publish(public_topic, f'MLa palabra era {solution}, {winner[22:]} ha ganado la partida')
+                print(f'Ya tenemos ganador, es {winner[22:]}')
                 k = 0
                 
                 

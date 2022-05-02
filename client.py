@@ -1,10 +1,10 @@
 ########################################################################################
 ########################################################################################
 ###############                                                          ###############
-###############            PRÃCTICA 3 - PROGRAMACIÃN PARALELA            ###############
-###############                   Cristina Ãvila Santos                  ###############
-###############                   Isabel BeltrÃ¡ Merino                   ###############
-###############                   Claudia ViÃ±as JÃ¡Ã±ez                    ###############
+###############            PRÁCTICA 3 - PROGRAMACIÓN PARALELA            ###############
+###############                   Cristina Ávila Santos                  ###############
+###############                   Isabel Beltrá Merino                   ###############
+###############                   Claudia Viñas JÃ¡Ã±ez                  ###############
 ###############                                                          ###############
 ########################################################################################
 ########################################################################################
@@ -32,7 +32,7 @@ def on_log(mqttc, userdata, level, string):
     print("LOG", userdata, level, string)
 
 def get_name():
-    print('Vamos a jugar al wordle. El objetivo es adivinar la palabra de 5 letras que estoy pensando. Para ello, tendrÃ¡s que ir lanzÃ¡ndome palabras de 5 letras. Yo te devolverÃ© una serie de 5 numeros segÃºn las letras de la palabra que has elegido estÃ¡n en mi palabra o no. Si pongo un 2, la letra no estÃ¡ en mi palabra; si pongo un 1 la letra estÃ¡ en la palbra pero en otra posiciÃ³n; y si pongo un 0 la letra estÃ¡ en la palabra y ademÃ¡s ocupa la misma posiciÃ³n que en tu palabra.\n')
+    print('Vamos a jugar al WORDLE. \n El objetivo es adivinar la palabra de 5 letras que estoy pensando. Para ello, tendrás que ir lanzándome palabras de 5 letras. Yo te devolveré una serie de 5 numeros en función de si las letras de la palabra que has elegido están en mi palabra o no. \n - Si pongo un 2, la letra NO está en mi palabra. \n - Si pongo un 1 la letra está en la palbra pero en otra posición. \n - Si pongo un 0 la letra está en la palabra y además ocupa la misma posición que en tu palabra.\n ¡A JUGAR!')
     name = input("Dame tu alias: ")
     return name
 
@@ -50,6 +50,7 @@ def main(broker):
 
     mqttc.subscribe(public_topic)
     myname = get_name()
+    
 
     userdata['mychannel'] = f'{public_topic}/{myname}'
     mqttc.subscribe(userdata['mychannel'])
